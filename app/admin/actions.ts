@@ -10,6 +10,7 @@ export interface EditableConfig {
   tagline: string;
   heroBlurb: string;
   aboutParagraph: string;
+  aboutUs: string;
   whatsappNumber: string;
   instagramUrl: string;
   location: string;
@@ -63,6 +64,7 @@ export async function saveAll(payload: SavePayload): Promise<SaveResult> {
       tagline: c.tagline,
       hero_blurb: c.heroBlurb,
       about_paragraph: c.aboutParagraph,
+      about_us: c.aboutUs,
       whatsapp_number: c.whatsappNumber,
       instagram_url: c.instagramUrl,
       location: c.location,

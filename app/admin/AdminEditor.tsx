@@ -7,6 +7,7 @@ import type { ProductRow } from "@/lib/content";
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
 import About from "@/components/About";
+import AboutUs from "@/components/AboutUs";
 import Footer from "@/components/Footer";
 import { saveAll, uploadProductPhoto, type EditableProduct } from "./actions";
 
@@ -265,10 +266,16 @@ export default function AdminEditor({
                 onChange={(v) => setConfigField("heroBlurb", v)}
               />
               <TextArea
-                label="About paragraph"
+                label="About paragraph (The Spice Island Story)"
                 value={config.aboutParagraph}
                 onChange={(v) => setConfigField("aboutParagraph", v)}
                 rows={4}
+              />
+              <TextArea
+                label="About Us (founder story)"
+                value={config.aboutUs}
+                onChange={(v) => setConfigField("aboutUs", v)}
+                rows={6}
               />
               <TextField
                 label="WhatsApp number"
@@ -456,6 +463,7 @@ export default function AdminEditor({
             <Hero config={config} />
             <Products products={previewProducts} config={config} />
             <About config={config} />
+            <AboutUs config={config} />
             <Footer config={config} />
           </div>
         </div>

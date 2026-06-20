@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
 import About from "@/components/About";
+import AboutUs from "@/components/AboutUs";
 import Footer from "@/components/Footer";
 import StickyWhatsApp from "@/components/StickyWhatsApp";
 import { getSiteContent } from "@/lib/content";
@@ -27,6 +28,9 @@ export default async function Home() {
 
         {/* 3. About Paragraph */}
         <About config={config} />
+
+        {/* 4. About Us / Founder */}
+        <AboutUs config={config} />
       </main>
 
       {/* 4. Footer Section */}

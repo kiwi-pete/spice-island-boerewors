@@ -14,6 +14,8 @@ export interface SiteConfig {
   /** Short paragraph shown under the tagline in the hero. */
   heroBlurb: string;
   aboutParagraph: string;
+  /** Founder / "About Us" paragraph. */
+  aboutUs: string;
   // WhatsApp number must be international format, digits only, no '+' prefix or spaces.
   // Example: "255777123456" for a Zanzibar number.
   whatsappNumber: string;
@@ -37,9 +39,10 @@ export const defaultSiteConfig: SiteConfig = {
     "Premium South African sausages handcrafted in Zanzibar. Traditional recipes, local fresh ingredients, and rich, authentic flavor cured and packaged for the ultimate grill.",
   aboutParagraph:
     "Freshly made in small batches, bringing the authentic flavors of South African butchery to Zanzibar. We make beef boerewors, beef breakfast sausage, and air-dried beef dry wors to order. Delivery is available in the Nungwi area of Zanzibar, and orders are taken by WhatsApp.",
+  aboutUs:
+    "Spice Island Boerewors was founded by Mark, an executive chef born and bred in South Africa, where boerewors is woven into everyday life. Over many years cooking in some of Zanzibar's most prestigious hotels, Mark built a reputation for precision, quality, and an uncompromising respect for proper ingredients. Today he brings that same fine-dining discipline to the food he grew up on — handcrafting every batch in small quantities using authentic South African recipes and time-honoured techniques. The result is boerewors with genuine pedigree: the taste of home, made by a professional chef who simply refuses to cut corners.",
 
-  // TODO: Set the WhatsApp number from the /admin screen (digits only, e.g., "255777000000").
-  whatsappNumber: "TODO_ENTER_WHATSAPP_NUMBER",
+  whatsappNumber: "255774337176",
 
   // TODO: Set the Instagram profile URL from the /admin screen.
   instagramUrl: "https://instagram.com/TODO_ENTER_INSTAGRAM_USERNAME",

@@ -13,6 +13,7 @@ interface SettingsRow {
   tagline: string;
   hero_blurb: string;
   about_paragraph: string;
+  about_us: string;
   whatsapp_number: string;
   instagram_url: string;
   location: string;
@@ -35,6 +36,7 @@ function rowToConfig(row: SettingsRow): SiteConfig {
     tagline: row.tagline,
     heroBlurb: row.hero_blurb,
     aboutParagraph: row.about_paragraph,
+    aboutUs: row.about_us,
     whatsappNumber: row.whatsapp_number,
     instagramUrl: row.instagram_url,
     location: row.location,
