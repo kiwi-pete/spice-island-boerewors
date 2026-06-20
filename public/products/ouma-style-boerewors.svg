@@ -1,0 +1,59 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a coiled Ouma-style boerewors on a wooden board">
+  <defs>
+    <radialGradient id="bg1" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#f8f0e1"/>
+      <stop offset="100%" stop-color="#e7d9bf"/>
+    </radialGradient>
+    <radialGradient id="board1" cx="50%" cy="44%" r="62%">
+      <stop offset="0%" stop-color="#cda468"/>
+      <stop offset="100%" stop-color="#9a7136"/>
+    </radialGradient>
+    <linearGradient id="wors1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ad5236"/>
+      <stop offset="100%" stop-color="#7c3321"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg1)"/>
+  <!-- board -->
+  <ellipse cx="400" cy="312" rx="252" ry="232" fill="#6f5026" opacity="0.25"/>
+  <ellipse cx="400" cy="305" rx="252" ry="232" fill="url(#board1)" stroke="#73531f" stroke-width="6"/>
+  <ellipse cx="400" cy="300" rx="252" ry="232" fill="none" stroke="#bd934f" stroke-width="2" opacity="0.55"/>
+  <!-- coil shadow -->
+  <g fill="none" stroke="#4f2014" stroke-width="40" stroke-linecap="round" opacity="0.35">
+    <circle cx="404" cy="312" r="172"/>
+    <circle cx="404" cy="312" r="121"/>
+    <circle cx="404" cy="312" r="70"/>
+  </g>
+  <!-- coil body -->
+  <g fill="none" stroke="url(#wors1)" stroke-width="36" stroke-linecap="round">
+    <circle cx="400" cy="305" r="172"/>
+    <circle cx="400" cy="305" r="121"/>
+    <circle cx="400" cy="305" r="70"/>
+    <circle cx="400" cy="305" r="22"/>
+  </g>
+  <!-- sheen -->
+  <g fill="none" stroke="#cd7152" stroke-width="9" stroke-linecap="round" opacity="0.5">
+    <circle cx="391" cy="296" r="172"/>
+    <circle cx="391" cy="296" r="121"/>
+    <circle cx="391" cy="296" r="70"/>
+  </g>
+  <!-- fat + spice speckles -->
+  <g fill="#ecdcc1">
+    <circle cx="572" cy="305" r="4"/><circle cx="228" cy="305" r="4"/><circle cx="400" cy="133" r="4"/>
+    <circle cx="400" cy="477" r="4"/><circle cx="503" cy="208" r="3.5"/><circle cx="297" cy="402" r="3.5"/>
+    <circle cx="521" cy="305" r="3.5"/><circle cx="279" cy="305" r="3.5"/><circle cx="400" cy="184" r="3.5"/>
+    <circle cx="470" cy="240" r="3"/><circle cx="330" cy="370" r="3"/><circle cx="400" cy="426" r="3"/>
+  </g>
+  <g fill="#3a2113">
+    <circle cx="540" cy="250" r="2.4"/><circle cx="262" cy="360" r="2.4"/><circle cx="455" cy="150" r="2.4"/>
+    <circle cx="345" cy="455" r="2.4"/><circle cx="488" cy="362" r="2.2"/><circle cx="318" cy="252" r="2.2"/>
+    <circle cx="430" cy="240" r="2"/><circle cx="370" cy="372" r="2"/><circle cx="450" cy="360" r="2"/>
+  </g>
+  <!-- rosemary sprig -->
+  <g stroke="#4f6b39" stroke-width="3.5" fill="none" stroke-linecap="round">
+    <path d="M600 470 q40 -34 92 -44"/>
+    <path d="M620 462 l-10 -16"/><path d="M636 456 l-9 -17"/><path d="M653 450 l-8 -17"/>
+    <path d="M670 446 l-7 -17"/><path d="M624 470 l-13 12"/><path d="M642 463 l-12 12"/><path d="M660 457 l-11 12"/>
+  </g>
+  <text x="400" y="567" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="21" fill="#7c3321" opacity="0.7" letter-spacing="4">SPICE ISLAND</text>
+</svg>

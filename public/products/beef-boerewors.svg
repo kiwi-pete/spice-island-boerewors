@@ -1,0 +1,50 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a length of beef boerewors on a board">
+  <defs>
+    <radialGradient id="bg2" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#f8f0e1"/>
+      <stop offset="100%" stop-color="#e7d9bf"/>
+    </radialGradient>
+    <linearGradient id="board2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cda468"/>
+      <stop offset="100%" stop-color="#a37b41"/>
+    </linearGradient>
+    <linearGradient id="wors2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b1573a"/>
+      <stop offset="100%" stop-color="#823623"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg2)"/>
+  <!-- rectangular board -->
+  <rect x="120" y="150" width="560" height="320" rx="26" fill="#6f5026" opacity="0.22" transform="translate(0,8)"/>
+  <rect x="120" y="150" width="560" height="320" rx="26" fill="url(#board2)" stroke="#73531f" stroke-width="6"/>
+  <g stroke="#8f6a35" stroke-width="2" opacity="0.4">
+    <line x1="120" y1="225" x2="680" y2="225"/><line x1="120" y1="310" x2="680" y2="310"/><line x1="120" y1="395" x2="680" y2="395"/>
+  </g>
+  <!-- serpentine sausage shadow -->
+  <path d="M190 250 C 300 180, 380 180, 400 250 S 500 460, 610 380"
+        fill="none" stroke="#4f2014" stroke-width="48" stroke-linecap="round" opacity="0.32" transform="translate(6,8)"/>
+  <!-- serpentine sausage body -->
+  <path d="M190 250 C 300 180, 380 180, 400 250 S 500 460, 610 380"
+        fill="none" stroke="url(#wors2)" stroke-width="44" stroke-linecap="round"/>
+  <!-- sheen -->
+  <path d="M190 244 C 300 174, 380 174, 400 244 S 500 454, 610 374"
+        fill="none" stroke="#cd7152" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
+  <!-- tied end knots -->
+  <circle cx="190" cy="250" r="15" fill="#7a3120"/>
+  <circle cx="610" cy="380" r="15" fill="#7a3120"/>
+  <!-- fat + spice speckles along the length -->
+  <g fill="#ecdcc1">
+    <circle cx="250" cy="216" r="4"/><circle cx="330" cy="200" r="3.5"/><circle cx="398" cy="262" r="4"/>
+    <circle cx="455" cy="320" r="3.5"/><circle cx="520" cy="400" r="4"/><circle cx="575" cy="392" r="3.5"/>
+    <circle cx="293" cy="208" r="3"/><circle cx="430" cy="296" r="3"/><circle cx="492" cy="372" r="3"/>
+  </g>
+  <g fill="#3a2113">
+    <circle cx="276" cy="210" r="2.4"/><circle cx="360" cy="214" r="2.4"/><circle cx="420" cy="288" r="2.4"/>
+    <circle cx="478" cy="350" r="2.2"/><circle cx="545" cy="404" r="2.2"/><circle cx="232" cy="232" r="2"/>
+  </g>
+  <!-- peppercorns scattered -->
+  <g fill="#2c2018">
+    <circle cx="250" cy="430" r="6"/><circle cx="285" cy="448" r="5"/><circle cx="565" cy="200" r="6"/><circle cx="600" cy="218" r="5"/>
+  </g>
+  <text x="400" y="567" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="21" fill="#823623" opacity="0.7" letter-spacing="4">SPICE ISLAND</text>
+</svg>

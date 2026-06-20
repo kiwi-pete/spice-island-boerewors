@@ -63,20 +63,24 @@ export const defaultProducts: Product[] = [
     description:
       "Traditional South African Ouma-style beef boerewors, freshly made in small batches.",
     price: "TZS 45,000 / kg",
+    image: "/products/ouma-style-boerewors.svg",
   },
   {
     name: "Beef boerewors",
     description: "Classic beef boerewors, made fresh to order.",
     price: "TZS 45,000 / kg",
+    image: "/products/beef-boerewors.svg",
   },
   {
     name: "Beef breakfast sausage",
     description: "Thin beef breakfast sausage.",
     price: "TZS 45,000 / kg",
+    image: "/products/beef-breakfast-sausage.svg",
   },
   {
     name: "Beef dry wors",
     description: "Air-dried beef dry wors, the perfect snack. Sold in 500g packs.",
     price: "TZS 40,000 / 500g pack",
+    image: "/products/beef-dry-wors.svg",
   },
 ];
