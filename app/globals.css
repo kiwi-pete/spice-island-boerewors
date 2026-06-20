@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  /* Earthy Spice Island Color Palette */
+  --color-paprika: #9e2a15;
+  --color-paprika-light: #c2452c;
+  --color-paprika-dark: #7a1d0d;
+  
+  --color-charcoal: #1c1a19;
+  --color-charcoal-light: #2c2826;
+  
+  --color-cream: #faf7f2;
+  --color-cream-dark: #f0e9dd;
+  
+  --color-saffron: #cca23b;
+  --color-saffron-light: #dfb958;
+
+  /* Typography mapping */
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Base resets & custom global styles */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-color: #faf7f2; /* cream fallback */
+  color: #1c1a19; /* charcoal fallback */
+}
