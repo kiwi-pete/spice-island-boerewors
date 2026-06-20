@@ -11,6 +11,7 @@ export interface EditableConfig {
   heroBlurb: string;
   aboutParagraph: string;
   aboutUs: string;
+  boereworsInfo: string;
   whatsappNumber: string;
   instagramUrl: string;
   location: string;
@@ -65,6 +66,7 @@ export async function saveAll(payload: SavePayload): Promise<SaveResult> {
       hero_blurb: c.heroBlurb,
       about_paragraph: c.aboutParagraph,
       about_us: c.aboutUs,
+      boerewors_info: c.boereworsInfo,
       whatsapp_number: c.whatsappNumber,
       instagram_url: c.instagramUrl,
       location: c.location,

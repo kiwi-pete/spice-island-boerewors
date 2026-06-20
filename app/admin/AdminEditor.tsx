@@ -8,6 +8,7 @@ import Hero from "@/components/Hero";
 import Products from "@/components/Products";
 import About from "@/components/About";
 import AboutUs from "@/components/AboutUs";
+import WhatIsBoerewors from "@/components/WhatIsBoerewors";
 import Footer from "@/components/Footer";
 import { saveAll, uploadProductPhoto, type EditableProduct } from "./actions";
 
@@ -277,6 +278,12 @@ export default function AdminEditor({
                 onChange={(v) => setConfigField("aboutUs", v)}
                 rows={6}
               />
+              <TextArea
+                label="What is Boerewors? (blank lines start new paragraphs)"
+                value={config.boereworsInfo}
+                onChange={(v) => setConfigField("boereworsInfo", v)}
+                rows={8}
+              />
               <TextField
                 label="WhatsApp number"
                 value={config.whatsappNumber}
@@ -464,6 +471,7 @@ export default function AdminEditor({
             <Products products={previewProducts} config={config} />
             <About config={config} />
             <AboutUs config={config} />
+            <WhatIsBoerewors config={config} />
             <Footer config={config} />
           </div>
         </div>

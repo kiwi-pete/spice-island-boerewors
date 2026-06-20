@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Products from "@/components/Products";
 import About from "@/components/About";
 import AboutUs from "@/components/AboutUs";
+import WhatIsBoerewors from "@/components/WhatIsBoerewors";
 import Footer from "@/components/Footer";
 import StickyWhatsApp from "@/components/StickyWhatsApp";
 import { getSiteContent } from "@/lib/content";
@@ -31,6 +32,9 @@ export default async function Home() {
 
         {/* 4. About Us / Founder */}
         <AboutUs config={config} />
+
+        {/* 5. What is Boerewors? (explainer for newcomers) */}
+        <WhatIsBoerewors config={config} />
       </main>
 
       {/* 4. Footer Section */}
