@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { getSupabaseAdmin, PHOTO_BUCKET } from "@/lib/supabaseAdmin";
 import { isAdmin } from "@/lib/auth";
 import type { ProductRow } from "@/lib/content";
+import type { Audience } from "@/lib/site";
 
 export interface EditableConfig {
   businessName: string;
@@ -12,6 +13,8 @@ export interface EditableConfig {
   aboutParagraph: string;
   aboutUs: string;
   boereworsInfo: string;
+  serveIntro: string;
+  audiences: Audience[];
   whatsappNumber: string;
   instagramUrl: string;
   location: string;
@@ -67,6 +70,8 @@ export async function saveAll(payload: SavePayload): Promise<SaveResult> {
       about_paragraph: c.aboutParagraph,
       about_us: c.aboutUs,
       boerewors_info: c.boereworsInfo,
+      serve_intro: c.serveIntro,
+      audiences: c.audiences,
       whatsapp_number: c.whatsappNumber,
       instagram_url: c.instagramUrl,
       location: c.location,

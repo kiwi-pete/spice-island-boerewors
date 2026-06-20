@@ -8,6 +8,11 @@
  * site always renders something sensible. See `lib/content.ts` for the loader.
  */
 
+export interface Audience {
+  title: string;
+  text: string;
+}
+
 export interface SiteConfig {
   businessName: string;
   tagline: string;
@@ -18,9 +23,14 @@ export interface SiteConfig {
   aboutUs: string;
   /** "What is boerewors?" explainer (supports blank lines between paragraphs). */
   boereworsInfo: string;
+  /** Lead line for the "Who we serve" section. */
+  serveIntro: string;
+  /** Audience cards for the "Who we serve" section. */
+  audiences: Audience[];
   // WhatsApp number must be international format, digits only, no '+' prefix or spaces.
   // Example: "255777123456" for a Zanzibar number.
   whatsappNumber: string;
+  /** Instagram profile URL. Leave empty to hide the Instagram link. */
   instagramUrl: string;
   location: string;
 }
@@ -48,11 +58,27 @@ export const defaultSiteConfig: SiteConfig = {
 Its story begins with the early Cape settlers of the 1800s, who married European sausage-making craft with local spices to create something entirely their own. To this day, South African law insists that true boerewors be at least 90% meat — no fillers, no shortcuts. That is exactly how we make ours.
 
 More than a meal, boerewors is a ritual: friends gathered around the fire, the unmistakable scent of spice and woodsmoke, and that first sizzling bite that tastes like home.`,
+  serveIntro:
+    "From a relaxed beach braai to a busy hotel kitchen, our boerewors is made for every table in Zanzibar.",
+  audiences: [
+    {
+      title: "For your home braai",
+      text: "Authentic, properly made boerewors delivered to your door in Nungwi — the centrepiece of any weekend braai with family and friends.",
+    },
+    {
+      title: "Events & catering",
+      text: "Weddings, parties and private functions across Zanzibar. We make to order in the quantities your event needs, so the grill never runs dry.",
+    },
+    {
+      title: "Hotels & restaurants",
+      text: "Consistent, chef-grade South African sausage for kitchens that want a reliable local supplier and a genuine point of difference on the menu.",
+    },
+  ],
 
   whatsappNumber: "255774337176",
 
-  // TODO: Set the Instagram profile URL from the /admin screen.
-  instagramUrl: "https://instagram.com/TODO_ENTER_INSTAGRAM_USERNAME",
+  // Instagram hidden for now (no account yet). Set a URL from /admin to show the link.
+  instagramUrl: "",
 
   location: "Zanzibar, Tanzania",
 };

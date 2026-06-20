@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
+import WhoWeServe from "@/components/WhoWeServe";
 import About from "@/components/About";
 import AboutUs from "@/components/AboutUs";
 import WhatIsBoerewors from "@/components/WhatIsBoerewors";
@@ -27,7 +28,10 @@ export default async function Home() {
         {/* 2. Products Grid */}
         <Products products={products} config={config} />
 
-        {/* 3. About Paragraph */}
+        {/* 3. Who We Serve */}
+        <WhoWeServe config={config} />
+
+        {/* 4. About Paragraph */}
         <About config={config} />
 
         {/* 4. About Us / Founder */}

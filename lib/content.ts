@@ -5,6 +5,7 @@ import {
   defaultProducts,
   type SiteConfig,
   type Product,
+  type Audience,
 } from "./site";
 
 /** Shape of a row in public.si_settings. */
@@ -15,6 +16,8 @@ interface SettingsRow {
   about_paragraph: string;
   about_us: string;
   boerewors_info: string;
+  serve_intro: string;
+  audiences: Audience[] | null;
   whatsapp_number: string;
   instagram_url: string;
   location: string;
@@ -39,6 +42,8 @@ function rowToConfig(row: SettingsRow): SiteConfig {
     aboutParagraph: row.about_paragraph,
     aboutUs: row.about_us,
     boereworsInfo: row.boerewors_info,
+    serveIntro: row.serve_intro,
+    audiences: Array.isArray(row.audiences) ? row.audiences : [],
     whatsappNumber: row.whatsapp_number,
     instagramUrl: row.instagram_url,
     location: row.location,

@@ -6,6 +6,7 @@ import type { SiteConfig, Product } from "@/lib/site";
 import type { ProductRow } from "@/lib/content";
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
+import WhoWeServe from "@/components/WhoWeServe";
 import About from "@/components/About";
 import AboutUs from "@/components/AboutUs";
 import WhatIsBoerewors from "@/components/WhatIsBoerewors";
@@ -113,6 +114,31 @@ export default function AdminEditor({
 
   function setConfigField<K extends keyof SiteConfig>(key: K, value: SiteConfig[K]) {
     setConfig((c) => ({ ...c, [key]: value }));
+  }
+
+  function updateAudience(i: number, patch: Partial<{ title: string; text: string }>) {
+    setConfig((c) => ({
+      ...c,
+      audiences: c.audiences.map((a, idx) => (idx === i ? { ...a, ...patch } : a)),
+    }));
+  }
+
+  function addAudience() {
+    setConfig((c) => ({ ...c, audiences: [...c.audiences, { title: "", text: "" }] }));
+  }
+
+  function removeAudience(i: number) {
+    setConfig((c) => ({ ...c, audiences: c.audiences.filter((_, idx) => idx !== i) }));
+  }
+
+  function moveAudience(i: number, dir: -1 | 1) {
+    setConfig((c) => {
+      const j = i + dir;
+      if (j < 0 || j >= c.audiences.length) return c;
+      const copy = [...c.audiences];
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+      return { ...c, audiences: copy };
+    });
   }
 
   function updateProduct(i: number, patch: Partial<EditableProduct>) {
@@ -296,7 +322,84 @@ export default function AdminEditor({
                 value={config.instagramUrl}
                 onChange={(v) => setConfigField("instagramUrl", v)}
                 placeholder="https://instagram.com/yourname"
+                hint="Leave empty to hide the Instagram link in the footer."
               />
+            </div>
+          </section>
+
+          {/* Who we serve */}
+          <section className="bg-white rounded-xl border border-charcoal/10 p-5 shadow-sm">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-serif text-lg font-bold text-charcoal">
+                Who we serve
+              </h2>
+              <button
+                onClick={addAudience}
+                className="text-sm font-semibold text-paprika hover:text-paprika-light border border-paprika/30 rounded-md px-3 py-1.5"
+              >
+                + Add audience
+              </button>
+            </div>
+            <div className="flex flex-col gap-4">
+              <TextArea
+                label="Intro line"
+                value={config.serveIntro}
+                onChange={(v) => setConfigField("serveIntro", v)}
+                rows={2}
+              />
+              {config.audiences.map((a, i) => (
+                <div
+                  key={i}
+                  className="rounded-lg border border-charcoal/10 p-4 bg-cream-dark/20"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-mono text-charcoal/40">
+                      #{i + 1}
+                    </span>
+                    <div className="flex items-center gap-1">
+                      <button
+                        onClick={() => moveAudience(i, -1)}
+                        disabled={i === 0}
+                        aria-label="Move up"
+                        className="px-2 py-1 text-charcoal/50 hover:text-charcoal disabled:opacity-30"
+                      >
+                        ↑
+                      </button>
+                      <button
+                        onClick={() => moveAudience(i, 1)}
+                        disabled={i === config.audiences.length - 1}
+                        aria-label="Move down"
+                        className="px-2 py-1 text-charcoal/50 hover:text-charcoal disabled:opacity-30"
+                      >
+                        ↓
+                      </button>
+                      <button
+                        onClick={() => removeAudience(i)}
+                        className="px-2 py-1 text-paprika hover:text-paprika-light text-sm font-semibold"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <TextField
+                      label="Title"
+                      value={a.title}
+                      onChange={(v) => updateAudience(i, { title: v })}
+                    />
+                    <TextArea
+                      label="Description"
+                      value={a.text}
+                      onChange={(v) => updateAudience(i, { text: v })}
+                    />
+                  </div>
+                </div>
+              ))}
+              {config.audiences.length === 0 && (
+                <p className="text-sm text-charcoal/50">
+                  No audiences yet. Click “Add audience” to create one.
+                </p>
+              )}
             </div>
           </section>
 
@@ -469,6 +572,7 @@ export default function AdminEditor({
           <div className="rounded-xl overflow-hidden border border-charcoal/15 shadow-md bg-cream max-h-[80vh] overflow-y-auto">
             <Hero config={config} />
             <Products products={previewProducts} config={config} />
+            <WhoWeServe config={config} />
             <About config={config} />
             <AboutUs config={config} />
             <WhatIsBoerewors config={config} />

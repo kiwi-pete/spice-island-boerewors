@@ -51,14 +51,18 @@ export default function Footer({ config }: { config: SiteConfig }) {
           >
             WhatsApp Order
           </a>
-          <a
-            href={config.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:text-cream text-cream-dark/80 transition-colors py-1 border-b border-transparent hover:border-cream/30 text-sm font-semibold tracking-wider uppercase"
-          >
-            Instagram
-          </a>
+          {config.instagramUrl &&
+            config.instagramUrl.trim() !== "" &&
+            !config.instagramUrl.includes("TODO") && (
+              <a
+                href={config.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-cream text-cream-dark/80 transition-colors py-1 border-b border-transparent hover:border-cream/30 text-sm font-semibold tracking-wider uppercase"
+              >
+                Instagram
+              </a>
+            )}
         </div>
 
         {/* Copyright */}
