@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import { getSupabaseAdmin } from "./supabaseAdmin";
 import {
   defaultSiteConfig,
@@ -64,10 +65,10 @@ function rowToProduct(row: ProductRow): Product {
  * Content for the PUBLIC site: site config + only the available products.
  * Falls back to the static defaults in lib/site.ts if the DB is unset/unreachable.
  */
-export async function getSiteContent(): Promise<{
+export const getSiteContent = cache(async (): Promise<{
   config: SiteConfig;
   products: Product[];
-}> {
+}> => {
   const supabase = getSupabaseAdmin();
   if (!supabase) {
     return { config: defaultSiteConfig, products: defaultProducts };
@@ -96,7 +97,7 @@ export async function getSiteContent(): Promise<{
   } catch {
     return { config: defaultSiteConfig, products: defaultProducts };
   }
-}
+});
 
 /**
  * Content for the ADMIN editor: site config + ALL products (including

@@ -1,6 +1,7 @@
 import React from "react";
 import { type SiteConfig } from "@/lib/site";
 import { getWhatsAppLink } from "@/lib/whatsapp";
+import Logo from "@/components/Logo";
 
 export default function Hero({ config }: { config: SiteConfig }) {
   const genericMessage = `Hi, I'd like to order from ${config.businessName}`;
@@ -18,9 +19,10 @@ export default function Hero({ config }: { config: SiteConfig }) {
           {config.location}
         </div>
 
-        {/* Brand Headline */}
-        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 leading-tight text-cream">
-          {config.businessName}
+        {/* Brand Logo */}
+        <h1 className="mb-8 text-cream">
+          <Logo markClassName="w-24 h-24 sm:w-28 sm:h-28" />
+          <span className="sr-only">{config.businessName}</span>
         </h1>
 
         {/* Tagline */}

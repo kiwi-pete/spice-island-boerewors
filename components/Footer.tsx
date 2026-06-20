@@ -1,6 +1,7 @@
 import React from "react";
 import { type SiteConfig } from "@/lib/site";
 import { getWhatsAppLink } from "@/lib/whatsapp";
+import { LogoMark } from "@/components/Logo";
 
 export default function Footer({ config }: { config: SiteConfig }) {
   const currentYear = new Date().getFullYear();
@@ -12,10 +13,13 @@ export default function Footer({ config }: { config: SiteConfig }) {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         
         {/* Brand/Location */}
-        <div className="text-center md:text-left">
-          <h3 className="font-serif text-2xl font-bold text-cream mb-2">
-            {config.businessName}
-          </h3>
+        <div className="flex flex-col items-center md:items-start">
+          <div className="flex items-center gap-3 mb-2">
+            <LogoMark className="w-9 h-9 text-cream shrink-0" />
+            <h3 className="font-serif text-2xl font-bold text-cream">
+              {config.businessName}
+            </h3>
+          </div>
           <p className="text-sm text-cream-dark/60 flex items-center justify-center md:justify-start gap-1.5">
             {/* Map pin icon */}
             <svg
