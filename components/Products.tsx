@@ -1,11 +1,17 @@
 import React from "react";
-import { products, Product } from "@/lib/site";
+import { type Product, type SiteConfig } from "@/lib/site";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 
-function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  whatsappNumber,
+}: {
+  product: Product;
+  whatsappNumber: string;
+}) {
   // Build a specific WhatsApp order message for this product
   const orderMessage = `Hi, I'd like to order: ${product.name}`;
-  const whatsappLink = getWhatsAppLink(orderMessage);
+  const whatsappLink = getWhatsAppLink(orderMessage, whatsappNumber);
   
   // Format price display
   const priceDisplay = product.price && product.price.trim() !== "" 
@@ -95,7 +101,13 @@ function ProductCard({ product }: { product: Product }) {
   );
 }
 
-export default function Products() {
+export default function Products({
+  products,
+  config,
+}: {
+  products: Product[];
+  config: SiteConfig;
+}) {
   return (
     <section id="products" className="py-20 px-6 sm:px-12 bg-cream-dark/30 max-w-7xl mx-auto w-full">
       {/* Section Header */}
@@ -111,8 +123,12 @@ export default function Products() {
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.map((product) => (
-          <ProductCard key={product.name} product={product} />
+        {products.map((product, i) => (
+          <ProductCard
+            key={product.id ?? `${product.name}-${i}`}
+            product={product}
+            whatsappNumber={config.whatsappNumber}
+          />
         ))}
       </div>
     </section>

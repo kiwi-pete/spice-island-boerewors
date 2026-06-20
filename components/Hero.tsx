@@ -1,10 +1,10 @@
 import React from "react";
-import { siteConfig } from "@/lib/site";
+import { type SiteConfig } from "@/lib/site";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 
-export default function Hero() {
-  const genericMessage = `Hi, I'd like to order from ${siteConfig.businessName}`;
-  const whatsappLink = getWhatsAppLink(genericMessage);
+export default function Hero({ config }: { config: SiteConfig }) {
+  const genericMessage = `Hi, I'd like to order from ${config.businessName}`;
+  const whatsappLink = getWhatsAppLink(genericMessage, config.whatsappNumber);
 
   return (
     <section className="relative overflow-hidden bg-charcoal text-cream py-20 px-6 sm:px-12 md:py-32 flex flex-col items-center justify-center text-center border-b-4 border-paprika">
@@ -15,22 +15,22 @@ export default function Hero() {
         {/* Origin/Location Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-paprika/20 border border-paprika text-saffron text-sm font-semibold tracking-wider uppercase mb-6 animate-pulse">
           <span className="w-2 h-2 rounded-full bg-saffron"></span>
-          {siteConfig.location}
+          {config.location}
         </div>
 
         {/* Brand Headline */}
         <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 leading-tight text-cream">
-          {siteConfig.businessName}
+          {config.businessName}
         </h1>
 
         {/* Tagline */}
         <p className="font-serif text-xl sm:text-2xl text-cream-dark italic mb-8 max-w-2xl leading-relaxed">
-          "{siteConfig.tagline}"
+          "{config.tagline}"
         </p>
 
         {/* Short description */}
         <p className="text-base sm:text-lg text-cream/80 mb-10 max-w-xl leading-relaxed">
-          Premium South African sausages handcrafted in Zanzibar. Traditional recipes, local fresh ingredients, and rich, authentic flavor cured and packaged for the ultimate grill.
+          {config.heroBlurb}
         </p>
 
         {/* Primary CTA Buttons */}

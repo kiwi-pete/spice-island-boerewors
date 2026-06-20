@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { siteConfig } from "@/lib/site";
+import { type SiteConfig } from "@/lib/site";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 
-export default function StickyWhatsApp() {
+export default function StickyWhatsApp({ config }: { config: SiteConfig }) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -21,8 +21,8 @@ export default function StickyWhatsApp() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const genericMessage = `Hi, I'd like to order from ${siteConfig.businessName}`;
-  const whatsappLink = getWhatsAppLink(genericMessage);
+  const genericMessage = `Hi, I'd like to order from ${config.businessName}`;
+  const whatsappLink = getWhatsAppLink(genericMessage, config.whatsappNumber);
 
   return (
     <div

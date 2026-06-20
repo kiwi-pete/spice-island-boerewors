@@ -1,11 +1,11 @@
 import React from "react";
-import { siteConfig } from "@/lib/site";
+import { type SiteConfig } from "@/lib/site";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 
-export default function Footer() {
+export default function Footer({ config }: { config: SiteConfig }) {
   const currentYear = new Date().getFullYear();
-  const genericMessage = `Hi, I'd like to order from ${siteConfig.businessName}`;
-  const whatsappLink = getWhatsAppLink(genericMessage);
+  const genericMessage = `Hi, I'd like to order from ${config.businessName}`;
+  const whatsappLink = getWhatsAppLink(genericMessage, config.whatsappNumber);
 
   return (
     <footer className="bg-charcoal text-cream-dark border-t-2 border-charcoal/30 py-16 px-6 sm:px-12 mt-auto">
@@ -14,7 +14,7 @@ export default function Footer() {
         {/* Brand/Location */}
         <div className="text-center md:text-left">
           <h3 className="font-serif text-2xl font-bold text-cream mb-2">
-            {siteConfig.businessName}
+            {config.businessName}
           </h3>
           <p className="text-sm text-cream-dark/60 flex items-center justify-center md:justify-start gap-1.5">
             {/* Map pin icon */}
@@ -37,7 +37,7 @@ export default function Footer() {
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               ></path>
             </svg>
-            {siteConfig.location}
+            {config.location}
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export default function Footer() {
             WhatsApp Order
           </a>
           <a
-            href={siteConfig.instagramUrl}
+            href={config.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 hover:text-cream text-cream-dark/80 transition-colors py-1 border-b border-transparent hover:border-cream/30 text-sm font-semibold tracking-wider uppercase"
@@ -64,7 +64,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="text-center md:text-right text-xs text-cream-dark/40">
           <p className="mb-1">
-            &copy; {currentYear} {siteConfig.businessName}. All rights reserved.
+            &copy; {currentYear} {config.businessName}. All rights reserved.
           </p>
           <p>
             Artisanal quality sausages crafted with love in Zanzibar, Tanzania.

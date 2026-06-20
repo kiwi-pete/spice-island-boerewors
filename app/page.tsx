@@ -4,8 +4,15 @@ import Products from "@/components/Products";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import StickyWhatsApp from "@/components/StickyWhatsApp";
+import { getSiteContent } from "@/lib/content";
 
-export default function Home() {
+// Re-fetch from the database at most every 5 minutes as a fallback; admin edits
+// also trigger on-demand revalidation via revalidatePath('/').
+export const revalidate = 300;
+
+export default async function Home() {
+  const { config, products } = await getSiteContent();
+
   return (
     <div className="flex flex-col min-h-screen bg-cream text-charcoal font-sans selection:bg-paprika selection:text-cream">
       {/* Decorative top border */}
@@ -13,20 +20,20 @@ export default function Home() {
 
       <main className="flex-grow flex flex-col">
         {/* 1. Hero Section */}
-        <Hero />
+        <Hero config={config} />
 
         {/* 2. Products Grid */}
-        <Products />
+        <Products products={products} config={config} />
 
         {/* 3. About Paragraph */}
-        <About />
+        <About config={config} />
       </main>
 
       {/* 4. Footer Section */}
-      <Footer />
+      <Footer config={config} />
 
       {/* Floating Sticky WhatsApp button for mobile scroll conversion */}
-      <StickyWhatsApp />
+      <StickyWhatsApp config={config} />
     </div>
   );
 }

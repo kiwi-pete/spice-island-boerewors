@@ -1,7 +1,7 @@
 import React from "react";
-import { siteConfig } from "@/lib/site";
+import { type SiteConfig } from "@/lib/site";
 
-export default function About() {
+export default function About({ config }: { config: SiteConfig }) {
   return (
     <section className="py-20 px-6 sm:px-12 bg-charcoal text-cream border-y-4 border-paprika relative overflow-hidden">
       {/* Decorative background element */}
@@ -25,7 +25,7 @@ export default function About() {
 
         {/* Short paragraph from config */}
         <p className="font-serif text-lg sm:text-xl md:text-2xl text-cream-dark italic leading-relaxed max-w-3xl mx-auto px-4">
-          {siteConfig.aboutParagraph}
+          {config.aboutParagraph}
         </p>
 
         {/* Highlight badge grid for Zanzibari context */}
